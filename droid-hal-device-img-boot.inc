@@ -183,7 +183,7 @@ shpp -Dembed_recovery=%{?embed_recovery}%{!?embed_recovery:0} \
 
 # Create a hybris-boot.img image from the zImage
 pushd %{_local_initrd_dir}
-./mksfosinitrd.sh %{embed_recovery}
+./mksfosinitrd.sh %{?embed_recovery:combined}
 popd
 %{mkbootimg_cmd} hybris-boot.img
 %if 0%{!?embed_recovery:1}
